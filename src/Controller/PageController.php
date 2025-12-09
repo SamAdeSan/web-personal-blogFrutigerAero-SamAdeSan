@@ -2,9 +2,7 @@
 
 namespace App\Controller;
 
-use Symfony\Bridge\Doctrine\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -29,5 +27,10 @@ final class PageController extends AbstractController
     public function contact(): Response
     {
         return $this->render('page/contact.html.twig', []);
+    }
+    #[Route('/thankyou', name: 'thankyou')]
+    public function thankyou(): Response
+    {
+        return $this->render('page/thankyou.html.twig', []);
     }
 }

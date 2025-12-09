@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title%}Gracias{% endblock %}
+{% block body %}
+    <div class="menu-bar">
+        <nav id="navMain">
+            <ul>
+                <li><a href="{{ path('index') }}">Blog</a></li>
+                <li><a href="{{ path('about') }}">Sobre Nosotros</a></li>
+                <li><a href="{{ path('archieves') }}">Archivos</a></li>
+                <li><a href="{{ path('contact') }}">Contacto</a></li>
+                <li class="subscribe"><a href="#">Suscríbete via. RSS</a></li>
+            </ul>
+        </nav>
+        <nav id="navLogin">
+            <ul>
+                <li><a href="#">log in</a></li>
+                <li><a href="#">sign in</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="thankyou">
+        <h1>¡GRACIAS POR ENVIARNOS TUS DATOS!</h1>
+        <p>Si quieres volver, dale a los enlaces de la navegación.</p>
+    </div>
+{% endblock %}

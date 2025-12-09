@@ -1,14 +1,13 @@
 {% extends 'base.html.twig' %}
 {% block title%}Contacto{% endblock %}
 {% block body %}
-<div class="main-content">
     <div class="menu-bar">
         <nav id="navMain">
             <ul>
                 <li><a href="{{ path('index') }}">Blog</a></li>
                 <li><a href="{{ path('about') }}">Sobre Nosotros</a></li>
                 <li><a href="{{ path('archieves') }}">Archivos</a></li>
-                <li class="selected"><a href="#">Contacto</a></li>
+                <li><a href="#">Contacto</a></li>
                 <li class="subscribe"><a href="#">Suscríbete via. RSS</a></li>
             </ul>
         </nav>
@@ -25,7 +24,7 @@
             <img src="img/welcomeFA.png" alt="welcomeFA">
         </header>
         <div id="contenido-contacto">
-            <form action="#" id="formularioContacto">
+            <form action="{{ path('thankyou') }}" id="formularioContacto">
                 <h3>¡Contactanos!</h3>
                 <p>
                     <label for="name">Nombre</label>
@@ -45,5 +44,4 @@
             </form>
         </div>
     </div>
-</div>
 {% endblock %}

@@ -135,6 +135,40 @@ body {
     width: 50%;
 }
 
+#thankyou {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: auto;
+    height: 500px;
+    background: linear-gradient(-40deg, rgb(0, 157, 255), rgb(0, 180, 93), rgb(0, 180, 93), #009dff);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s ease infinite;
+    border: 2px solid black;
+    border-top: none;
+    margin-bottom: 10px;
+    h1 {
+        padding-left: 10px;
+        padding-right: 10px;
+        box-shadow: c;
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+
 .title {
     color: #000;
     letter-spacing: 0;
@@ -534,7 +568,6 @@ footer ul li {
         margin-left: 0;
         width: 100%;
     }
-
     footer div {
         padding: 22px;
     }
