@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+{% block title%}Categories{% endblock %}
+{% block body%}
+    <div class="menu-bar">
+        <nav id="navMain">
+            <ul>
+                <li><a href="{{ path('index') }}">Blog</a></li>
+                <li><a href="{{ path('about') }}">Sobre Nosotros</a></li>
+                <li><a href="{{ path('archieves') }}">Archivos</a></li>
+                <li><a href="{{ path('contact') }}">Contacto</a></li>
+                <li class="subscribe"><a href="#">Suscríbete via. RSS</a></li>
+            </ul>
+        </nav>
+        <nav id="navLogin">
+            {% if app.user %}
+                <a href="{{ path('app_logout') }}">
+                    {{ app.user.name }} - Cerrar Sesión
+                </a>
+            {% else %}
+                <a href="{{ path('app_login') }}">
+                    Iniciar Sesión
+                </a>
+                <a href="{{ path('app_register') }}">
+                    Registrarse
+                </a>
+            {% endif %}
+        </nav>
+    </div>
+    <div class="body-content">
+        <header id="headerImg">
+            <img src="{{ asset('img/frutiger-aero.png') }}" alt="titulo">
+            <img src="{{ asset('img/welcomeFA.png') }}" alt="welcomeFA">
+        </header>
+        <section id="intro">
+            <h2>¿Qué es "Frutiger Aero"?</h2>
+            <p>
+                Frutiger Aero es una estética de diseño popular entre 2004 y 2013 que combina tecnología y naturaleza, usando
+                elementos como cristales, burbujas, agua, peces y paisajes de cielos azules y verdes. Su nombre proviene de la
+                tipografía Frutiger y de la interfaz gráfica Windows Aero. El estilo se caracteriza por el esqueumorfismo
+                brillante y transparente, transmitiendo optimismo y una conexión con la naturaleza, pero desapareció en la
+                década de 2010 al ser reemplazado por el diseño plano y minimalista.
+            </p>
+        </section>
+        <section id="container">
+            <div id="categories">
+                <h1>Categories</h1>
+                {{ form_start(form) }}
+                {{ form_row(form.name, {
+                    label: 'Nombre: '
+                }) }}
+            </div>
+            <div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for category in categories %}
+                        <tr>
+                            <th scope="row">{{ category.id }}</th>
+                            <td>
+                                {{ category.name }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+{% endblock %}
