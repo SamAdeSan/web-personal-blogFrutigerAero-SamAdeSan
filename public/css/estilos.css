@@ -67,7 +67,6 @@ body {
 .menu-bar #navMain ul {
     display: flex;
     list-style: none;
-    gap: 15px;
 }
 
 .menu-bar #navMain ul li a {
@@ -77,30 +76,37 @@ body {
     text-decoration: none;
     color: #000;
     font-weight: 500;
-    padding: 7px 16px;
-    border-radius: 5px;
+    padding: 13px 16px;
+    margin: 0;
 }
 
 .menu-bar #navMain ul li a:hover {
     color: #fff;
+    background-color: #3398ff;
 }
 
 .menu-bar #navMain ul li.selected a {
     color: #878787;
 }
+.menu-bar #navMain ul li.selected a:hover {
+    color: #878787;
+    background-color: unset;
+}
 
 .menu-bar #navMain ul li.subscribe a {
-    margin-left: 22px;
     padding-left: 33px;
     text-align: left;
     background: url("../img/rss.png") left center no-repeat;
 }
 
+.menu-bar #navMain ul li.subscribe a:hover {
+    color: #fff;
+    background-color: #3398ff;
+}
+
 .menu-bar #navLogin {
     display: flex;
     list-style: none;
-    gap: 15px;
-    padding-right: 10px;
 }
 
 .menu-bar #navLogin a {
@@ -108,14 +114,13 @@ body {
     align-items: center;
     font-size: 14px;
     text-decoration: none;
-    color: #000;
     font-weight: 500;
-    padding: 7px 16px;
-    border-radius: 5px;
+    padding: 13px 15px;
 }
 
 .menu-bar #navLogin a:hover {
     color: #fff;
+    background-color: #3398ff;
 }
 
 .body-content {
@@ -526,10 +531,19 @@ form button[type="submit"]:hover {
     transform: scale(1.05);
 }
 
-.table {
+
+
+#categories {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgb(0 0 0);
     width: 100%;
+}
+
+.table {
+    width: auto;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin: 20px;
     backdrop-filter: blur(8px);
     background: rgba(255, 255, 255, 0.25);
     border-radius: 16px;

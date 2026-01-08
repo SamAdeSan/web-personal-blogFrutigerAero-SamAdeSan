@@ -2,29 +2,7 @@
 {% block title%}Categories{% endblock %}
 {% block body%}
     <div class="menu-bar">
-        <nav id="navMain">
-            <ul>
-                <li><a href="{{ path('index') }}">Blog</a></li>
-                <li><a href="{{ path('about') }}">Sobre Nosotros</a></li>
-                <li><a href="{{ path('archieves') }}">Archivos</a></li>
-                <li><a href="{{ path('contact') }}">Contacto</a></li>
-                <li class="subscribe"><a href="#">Suscríbete via. RSS</a></li>
-            </ul>
-        </nav>
-        <nav id="navLogin">
-            {% if app.user %}
-                <a href="{{ path('app_logout') }}">
-                    {{ app.user.name }} - Cerrar Sesión
-                </a>
-            {% else %}
-                <a href="{{ path('app_login') }}">
-                    Iniciar Sesión
-                </a>
-                <a href="{{ path('app_register') }}">
-                    Registrarse
-                </a>
-            {% endif %}
-        </nav>
+        {{ include ('page/partials/navigator.html.twig') }}
     </div>
     <div class="body-content">
         <header id="headerImg">
@@ -43,32 +21,40 @@
         </section>
         <section id="container">
             <div id="categories">
-                <h1>Categories</h1>
+                <h1>Categorias</h1>
+                <p>Crea ya tu propia categoría relacionada con el mundo aero o Frutiger Aero</p>
+                <p>Puedes añadir un </p>
                 {{ form_start(form) }}
-                {{ form_row(form.name, {
-                    label: 'Nombre: '
-                }) }}
+                <p>
+                    {{ form_row(form.name, {
+                        label: 'Nombre de la categoría: '
+                    }) }}
+                </p>
+                <button type="submit" class="btn">Enviar Categoría</button>
+                {{ form_end(form) }}
             </div>
-            <div>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for category in categories %}
+            <aside style="display: flex; justify-content: center">
+                <div>
+                    <table class="table">
+                        <thead>
                         <tr>
-                            <th scope="row">{{ category.id }}</th>
-                            <td>
-                                {{ category.name }}
-                            </td>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre de la categoría</th>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                        {% for category in categories %}
+                            <tr>
+                                <th scope="row">{{ category.id }}</th>
+                                <td>
+                                    {{ category.name }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </aside>
         </section>
     </div>
 {% endblock %}

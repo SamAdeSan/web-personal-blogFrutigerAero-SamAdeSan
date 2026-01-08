@@ -19,7 +19,7 @@ final class PageController extends AbstractController
         return $this->render('page/about.html.twig', []);
     }
     #[Route('/archieves', name: 'archieves')]
-    public function blog(): Response
+    public function archieves(): Response
     {
         return $this->render('page/archieves.html.twig', []);
     }

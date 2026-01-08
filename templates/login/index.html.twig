@@ -1,29 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <div class="menu-bar">
-        <nav id="navMain">
-            <ul>
-                <li><a href="{{ path('index') }}">Blog</a></li>
-                <li><a href="{{ path('about') }}">Sobre Nosotros</a></li>
-                <li><a href="{{ path('archieves') }}">Archivos</a></li>
-                <li><a href="{{ path('contact') }}">Contacto</a></li>
-                <li class="subscribe"><a href="#">Suscríbete via. RSS</a></li>
-            </ul>
-        </nav>
-        <nav id="navLogin">
-            {% if app.user %}
-                <a href="{{ path('app_logout') }}">
-                    {{ app.user.name }} - Cerrar Sesión
-                </a>
-            {% else %}
-                <a href="{{ path('app_login') }}">
-                    Iniciar Sesión
-                </a>
-                <a href="{{ path('app_register') }}">
-                    Registrarse
-                </a>
-            {% endif %}
-        </nav>
+        {{ include ('page/partials/navigator.html.twig') }}
     </div>
     <div class="body-content">
         <header id="headerImg">
@@ -35,9 +13,6 @@
             <p>Si tus datos son incorrectos, asegúrate de que ya te has registrado.</p>
             <p>Dale a <i>"Registrarse"</i> para crearte una cuenta</p>
 
-            {% if error %}
-                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-            {% endif %}
             <form action="{{ path('app_login') }}" method="post">
                 <p>
                     <label for="username">Email/Correo Electrónico:</label>
@@ -53,6 +28,9 @@
                 <p>
                     <button type="submit">login</button>
                 </p>
+                {% if error %}
+                    <div style="border-radius: 8px; padding-top: 2px; background-color: rgb(212,162,162)"><p style="color: darkred">{{ error.messageKey|trans(error.messageData, 'security') }}</p></div>
+                {% endif %}
             </form>
         </div>
     </div>

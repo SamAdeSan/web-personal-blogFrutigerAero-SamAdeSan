@@ -2,29 +2,7 @@
 {% block title%}Archivos{% endblock %}
 {% block body %}
     <div class="menu-bar">
-        <nav id="navMain">
-            <ul>
-                <li><a href="{{ path('index') }}">Blog</a></li>
-                <li><a href="{{ path('about') }}">Sobre Nosotros</a></li>
-                <li class="selected"><a href="#">Archivos</a></li>
-                <li><a href="{{ path('contact') }}">Contacto</a></li>
-                <li class="subscribe"><a href="#">Suscríbete via. RSS</a></li>
-            </ul>
-        </nav>
-        <nav id="navLogin">
-            {% if app.user %}
-                <a href="{{ path('app_logout') }}">
-                    {{ app.user.name }} - Cerrar Sesión
-                </a>
-            {% else %}
-                <a href="{{ path('app_login') }}">
-                    Iniciar Sesión
-                </a>
-                <a href="{{ path('app_register') }}">
-                    Registrarse
-                </a>
-            {% endif %}
-        </nav>
+        {{ include ('page/partials/navigator.html.twig') }}
     </div>
     <div class="body-content">
         <header id="headerImg">
